@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ReactiveFormsModule } from '@angular/forms';
 
-import { SignInUser } from './signin.model';
+import { SignInUser } from '../_models/signin.model';
 
 @Component({
   selector: 'signin-root',

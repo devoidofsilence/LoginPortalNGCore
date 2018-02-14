@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ReactiveFormsModule } from '@angular/forms';
 
-import { SignUpUser } from './signup.model';
+import { SignUpUser } from '../_models/signup.model';
 import { PasswordValidation } from '../others/passwordValidation.validator';
 
 @Component({
