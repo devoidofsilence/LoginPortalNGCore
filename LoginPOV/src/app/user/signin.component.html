@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->  
+<div style="text-align:center" class="form-signin">
+    <div class="row">
+      <div class="offset-md-4 col-md-4">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="form-horizontal" >
+          <h4 class="form-signin-heading">Please Login</h4>
+          <label for="userName" class="sr-only">Username</label>
+          <input class="form-control topTextControl" type="text" id="txtUsername" name="userName" placeholder="Username" [formControl]="username" [(ngModel)]="user.username" />
+          <label for="password" class="sr-only">Password</label>
+          <input class="form-control lastTextControl" type="password" id="txtPassword" name="password" placeholder="Password" [formControl]="password" [(ngModel)]="user.password" />
+            <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>
+        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-lg btn-default btn-block">Login</button>
+        <button type="button" [routerLink]="['/signup']" class="btn btn-lg btn-default btn-block">Sign Up</button>
+        <a class="btn btn-link" href="javascript:void(0)" routerLink="/resetPassword">Forgot Your Password?</a>
+      </form>
+      </div>
+      <div class="col-md-4" style="padding-top: 2em">
+        <div *ngIf="username.invalid && (username.dirty || username.touched)"
+               class="alert alert-danger">
+            <div *ngIf="username.hasError('required')">
+              Please enter username
+            </div>
+          </div>
+          <div *ngIf="password.invalid && (password.dirty || password.touched)"
+               class="alert alert-danger">
+  
+            <div *ngIf="password.hasError('required')">
+              Please enter password
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
