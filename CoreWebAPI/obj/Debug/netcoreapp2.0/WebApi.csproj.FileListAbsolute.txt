@@ -8,3 +8,13 @@ C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-exa
 C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-example-master\aspnet-core-angular2-registration-login-example-master\server\obj\Debug\netcoreapp2.0\WebApi.AssemblyInfo.cs
 C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-example-master\aspnet-core-angular2-registration-login-example-master\server\obj\Debug\netcoreapp2.0\WebApi.dll
 C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-example-master\aspnet-core-angular2-registration-login-example-master\server\obj\Debug\netcoreapp2.0\WebApi.pdb
+C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\bin\Debug\netcoreapp2.0\WebApi.deps.json
+C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\bin\Debug\netcoreapp2.0\WebApi.runtimeconfig.json
+C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\bin\Debug\netcoreapp2.0\WebApi.runtimeconfig.dev.json
+C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\bin\Debug\netcoreapp2.0\WebApi.dll
+C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\bin\Debug\netcoreapp2.0\WebApi.pdb
+C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebApi.csproj.CoreCompileInputs.cache
+C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebApi.AssemblyInfoInputs.cache
+C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebApi.AssemblyInfo.cs
+C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebApi.dll
+C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebApi.pdb

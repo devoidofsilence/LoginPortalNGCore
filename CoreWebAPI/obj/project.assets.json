@@ -12611,11 +12611,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\roman.bajracharya\\Downloads\\aspnet-core-angular2-registration-login-example-master\\aspnet-core-angular2-registration-login-example-master\\server\\WebApi.csproj",
+      "projectUniqueName": "C:\\AngularLoginPortal\\LoginPortalNGCore\\CoreWebAPI\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "C:\\Users\\roman.bajracharya\\Downloads\\aspnet-core-angular2-registration-login-example-master\\aspnet-core-angular2-registration-login-example-master\\server\\WebApi.csproj",
+      "projectPath": "C:\\AngularLoginPortal\\LoginPortalNGCore\\CoreWebAPI\\WebApi.csproj",
       "packagesPath": "C:\\Users\\roman.bajracharya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\roman.bajracharya\\Downloads\\aspnet-core-angular2-registration-login-example-master\\aspnet-core-angular2-registration-login-example-master\\server\\obj\\",
+      "outputPath": "C:\\AngularLoginPortal\\LoginPortalNGCore\\CoreWebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

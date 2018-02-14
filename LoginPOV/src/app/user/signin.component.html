@@ -2,7 +2,7 @@
 <div style="text-align:center" class="form-signin">
     <div class="row">
       <div class="offset-md-4 col-md-4">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="form-horizontal" >
+        <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onSubmit()" class="form-horizontal" >
           <h4 class="form-signin-heading">Please Login</h4>
           <label for="userName" class="sr-only">Username</label>
           <input class="form-control topTextControl" type="text" id="txtUsername" name="userName" placeholder="Username" [formControl]="username" [(ngModel)]="user.username" />
@@ -13,7 +13,9 @@
                   <input type="checkbox" value="remember-me"> Remember me
                 </label>
               </div>
-        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-lg btn-default btn-block">Login</button>
+        <button [disabled]="loading" class="btn btn-lg btn-default btn-block">Login</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        <!-- <button type="submit" [disabled]="loginForm.invalid" class="btn btn-lg btn-default btn-block">Login</button> -->
         <button type="button" [routerLink]="['/signup']" class="btn btn-lg btn-default btn-block">Sign Up</button>
         <a class="btn btn-link" href="javascript:void(0)" routerLink="/resetPassword">Forgot Your Password?</a>
       </form>

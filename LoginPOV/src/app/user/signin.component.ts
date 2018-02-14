@@ -1,18 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ReactiveFormsModule } from '@angular/forms';
-
-import { SignInUser } from '../_models/signin.model';
+import { AlertService, AuthenticationService } from '../_services/index';
+import { User } from '../_models/user.model';
 
 @Component({
   selector: 'signin-root',
   templateUrl: './signin.component.html'
 })
 export class SignInComponent implements OnInit {
+  loading = false;
+  returnUrl: string;
   loginForm : FormGroup;
   username : AbstractControl;
   password : AbstractControl;
-  user : SignInUser;
-  constructor (fb : FormBuilder) {
+  user : User;
+  constructor (fb : FormBuilder, private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private alertService: AlertService) {
     this.loginForm = fb.group({
       'username' : ['', Validators.required],
       'password' : ['', Validators.required]
@@ -22,11 +28,31 @@ export class SignInComponent implements OnInit {
   }
   ngOnInit () {
     this.user = {
+      id : null,
       username : '',
-      password : ''
+      email : '',
+      password : '',
+      retypePassword : ''
+    }
+    // reset login status
+    this.authenticationService.logout();
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
+  onSubmit () : void {
+    console.log(this.user);
+    this.user.username = this.username.value;
+    this.user.password = this.password.value;
+    this.loading = true;
+        this.authenticationService.login(this.user.username, this.user.password)
+            .subscribe(
+                data => {
+                    this.router.navigate([this.returnUrl]);
+                },
+                error => {
+                    this.alertService.error('Username or password is incorrect');
+                    this.loading = false;
+                });
     }
   }
-  onSubmit (value : string) : void {
-    console.log('You submitted value : ', value);
-  }
-}
