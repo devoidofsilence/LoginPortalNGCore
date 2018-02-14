@@ -31,8 +31,7 @@ export class SignInComponent implements OnInit {
       id : null,
       username : '',
       email : '',
-      password : '',
-      retypePassword : ''
+      password : ''
     }
     // reset login status
     this.authenticationService.logout();

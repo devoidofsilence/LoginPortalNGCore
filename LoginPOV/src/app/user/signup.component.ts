@@ -38,8 +38,7 @@ export class SignUpComponent implements OnInit {
       id : null,
       username : '',
       email : '',
-      password : '',
-      retypePassword : ''
+      password : ''
     }
   }
   onSubmit () : void {
