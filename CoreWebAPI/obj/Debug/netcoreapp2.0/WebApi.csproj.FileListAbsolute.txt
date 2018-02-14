@@ -1,0 +1,10 @@
+C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-example-master\aspnet-core-angular2-registration-login-example-master\server\bin\Debug\netcoreapp2.0\WebApi.deps.json
+C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-example-master\aspnet-core-angular2-registration-login-example-master\server\bin\Debug\netcoreapp2.0\WebApi.runtimeconfig.json
+C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-example-master\aspnet-core-angular2-registration-login-example-master\server\bin\Debug\netcoreapp2.0\WebApi.runtimeconfig.dev.json
+C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-example-master\aspnet-core-angular2-registration-login-example-master\server\bin\Debug\netcoreapp2.0\WebApi.dll
+C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-example-master\aspnet-core-angular2-registration-login-example-master\server\bin\Debug\netcoreapp2.0\WebApi.pdb
+C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-example-master\aspnet-core-angular2-registration-login-example-master\server\obj\Debug\netcoreapp2.0\WebApi.csproj.CoreCompileInputs.cache
+C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-example-master\aspnet-core-angular2-registration-login-example-master\server\obj\Debug\netcoreapp2.0\WebApi.AssemblyInfoInputs.cache
+C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-example-master\aspnet-core-angular2-registration-login-example-master\server\obj\Debug\netcoreapp2.0\WebApi.AssemblyInfo.cs
+C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-example-master\aspnet-core-angular2-registration-login-example-master\server\obj\Debug\netcoreapp2.0\WebApi.dll
+C:\Users\roman.bajracharya\Downloads\aspnet-core-angular2-registration-login-example-master\aspnet-core-angular2-registration-login-example-master\server\obj\Debug\netcoreapp2.0\WebApi.pdb
