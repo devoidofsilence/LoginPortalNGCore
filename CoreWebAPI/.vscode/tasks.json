@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/CoreWebAPI.csproj"
+                "${workspaceFolder}/src/AngularASPNETCore2WebApiAuth.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
