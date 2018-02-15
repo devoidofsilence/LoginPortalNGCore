@@ -51,6 +51,7 @@ export class SignInComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
+                  console.log('show validation');
                     this.alertService.error('Username or password is incorrect');
                     this.loading = false;
                 });

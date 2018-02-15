@@ -53,7 +53,8 @@ const routes: Routes = [
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
