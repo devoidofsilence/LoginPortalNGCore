@@ -40,13 +40,14 @@ export class SignInComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
   onSubmit () : void {
-    console.log(this.user);
+    // console.log(this.user);
     this.user.username = this.username.value;
     this.user.password = this.password.value;
     this.loading = true;
         this.authenticationService.login(this.user.username, this.user.password)
             .subscribe(
                 data => {
+                    // console.log(this.returnUrl);
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {

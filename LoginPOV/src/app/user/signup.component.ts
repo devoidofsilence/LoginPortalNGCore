@@ -35,14 +35,15 @@ export class SignUpComponent implements OnInit {
   }
   ngOnInit () {
     this.user = {
-      id : null,
-      username : '',
+      id : 0,
       email : '',
+      username : '',
       password : ''
     }
   }
   onSubmit () : void {
     this.loading = true;
+    // console.log(this.user);
         this.userService.create(this.user)
             .subscribe(
                 data => {

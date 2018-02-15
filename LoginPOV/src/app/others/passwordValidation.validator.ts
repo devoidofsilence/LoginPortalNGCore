@@ -5,9 +5,9 @@ export class PasswordValidation {
        let password = AC.get('password').value; // to get value in input tag
        let confirmPassword = AC.get('retypePassword').value; // to get value in input tag
         if(password != confirmPassword) {
-            console.log('false');
+            // console.log('false');
             if(password == '' && confirmPassword == '') {
-                console.log('Here');
+                // console.log('Here');
                 AC.get('retypePassword').setErrors( null );
             }
             else {

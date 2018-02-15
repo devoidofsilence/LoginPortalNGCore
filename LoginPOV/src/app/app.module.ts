@@ -16,7 +16,12 @@ import { AlertService, AuthenticationService, UserService } from './_services/in
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'login',
     component: SignInComponent
   },
   {
@@ -32,9 +37,14 @@ const routes: Routes = [
     component: NotFoundComponent
   },
   {
-   path: '**',
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
    redirectTo: '/404'
-  }
+  },
 ];
 @NgModule({
   declarations: [

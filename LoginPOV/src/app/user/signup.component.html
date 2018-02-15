@@ -11,9 +11,9 @@
           <label for="password" class="sr-only">Password</label>
           <input class="form-control middleTextControl" type="password" id="txtPassword" name="password" placeholder="Password" [formControl]="password" [(ngModel)]="user.password" />
           <label for="retypePassword" class="sr-only">Retype Password</label>
-          <input class="form-control lastTextControl" type="password" id="txtRetypePassword" name="retypePassword" placeholder="Confirm Password" [formControl]="retypePassword" [(ngModel)]="user.retypePassword" />
+          <input class="form-control lastTextControl" type="password" id="txtRetypePassword" name="retypePassword" placeholder="Confirm Password" [formControl]="retypePassword" />
         <button type="submit" [disabled]="loginForm.invalid" class="btn btn-lg btn-default btn-block">Sign Up</button>
-        <button type="button" [routerLink]="['/']" class="btn btn-lg btn-default btn-block">Sign In</button>
+        <button type="button" [routerLink]="['/login']" class="btn btn-lg btn-default btn-block">Sign In</button>
       </form>
       </div>
       <div class="col-md-4" style="padding-top: 2em">
