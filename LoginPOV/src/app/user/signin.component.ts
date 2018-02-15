@@ -52,7 +52,7 @@ export class SignInComponent implements OnInit {
                 },
                 error => {
                   console.log('show validation');
-                    this.alertService.error('Username or password is incorrect');
+                    this.alertService.error('Check username/password');
                     this.loading = false;
                 });
     }
