@@ -2,7 +2,7 @@
 <div style="text-align:center" class="form-signin">
     <div class="row">
       <div class="offset-md-4 col-md-4">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="form-horizontal" >
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
           <h4 class="form-signin-heading">Please fill the detail</h4>
           <label for="userName" class="sr-only">Username</label>
           <input class="form-control topTextControl" type="text" id="txtUsername" name="userName" placeholder="Username" [formControl]="username" [(ngModel)]="user.username" />
