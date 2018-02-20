@@ -14,6 +14,8 @@ export class SignUpComponent implements OnInit {
   loginForm : FormGroup;
   username : AbstractControl;
   email : AbstractControl;
+  isApproved : AbstractControl;
+  isAdmin : AbstractControl;
   password : AbstractControl;
   retypePassword : AbstractControl;
   user : User;
@@ -22,6 +24,8 @@ export class SignUpComponent implements OnInit {
     private alertService: AlertService) {
     this.loginForm = fb.group({
       'username' : ['', Validators.required],
+      'isApproved' : [false],
+      'isAdmin' : [false],
       'email' : ['', [Validators.required,Validators.email]],
       'retypePassword' : ['', Validators.required],
       'password' : ['', Validators.required]
@@ -30,6 +34,8 @@ export class SignUpComponent implements OnInit {
     });
     this.username = this.loginForm.controls['username'];
     this.email = this.loginForm.controls['email'];
+    this.isApproved = this.loginForm.controls['isApproved'];
+    this.isAdmin = this.loginForm.controls['isAdmin'];
     this.password = this.loginForm.controls['password'];
     this.retypePassword = this.loginForm.controls['retypePassword'];
   }
@@ -38,6 +44,8 @@ export class SignUpComponent implements OnInit {
       id : 0,
       email : '',
       username : '',
+      isApproved : false,
+      isAdmin : false,
       password : ''
     }
   }

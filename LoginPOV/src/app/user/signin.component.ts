@@ -30,6 +30,8 @@ export class SignInComponent implements OnInit {
     this.user = {
       id : null,
       username : '',
+      isApproved : false,
+      isAdmin : false,
       email : '',
       password : ''
     }
