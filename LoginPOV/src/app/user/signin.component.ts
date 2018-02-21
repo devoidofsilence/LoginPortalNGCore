@@ -29,6 +29,8 @@ export class SignInComponent implements OnInit {
   ngOnInit () {
     this.user = {
       id : null,
+      firstname : '',
+      lastname : '',
       username : '',
       isApproved : false,
       isAdmin : false,

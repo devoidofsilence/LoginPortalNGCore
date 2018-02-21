@@ -1,2 +1,12 @@
+
+<ul *ngIf="(isLoggedIn | async)" class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#" [routerLink]="['/']">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" [routerLink]="['/userlist']">Users</a>
+    </li>
+  </ul>
+
 <alert></alert>
 <router-outlet></router-outlet>

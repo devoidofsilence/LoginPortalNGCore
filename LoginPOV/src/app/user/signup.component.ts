@@ -12,9 +12,10 @@ import { PasswordValidation } from '../others/passwordValidation.validator';
 export class SignUpComponent implements OnInit {
   loading = false;
   loginForm : FormGroup;
+  firstname : AbstractControl;
+  lastname : AbstractControl;
   username : AbstractControl;
   email : AbstractControl;
-  isApproved : AbstractControl;
   isAdmin : AbstractControl;
   password : AbstractControl;
   retypePassword : AbstractControl;
@@ -23,8 +24,9 @@ export class SignUpComponent implements OnInit {
     private userService: UserService,
     private alertService: AlertService) {
     this.loginForm = fb.group({
+      'firstname' : ['', Validators.required],
+      'lastname' : ['', Validators.required],
       'username' : ['', Validators.required],
-      'isApproved' : [false],
       'isAdmin' : [false],
       'email' : ['', [Validators.required,Validators.email]],
       'retypePassword' : ['', Validators.required],
@@ -32,9 +34,10 @@ export class SignUpComponent implements OnInit {
     }, {
       validator: PasswordValidation.MatchPassword // your validation method
     });
+    this.firstname = this.loginForm.controls['firstname'];
+    this.lastname = this.loginForm.controls['lastname'];
     this.username = this.loginForm.controls['username'];
     this.email = this.loginForm.controls['email'];
-    this.isApproved = this.loginForm.controls['isApproved'];
     this.isAdmin = this.loginForm.controls['isAdmin'];
     this.password = this.loginForm.controls['password'];
     this.retypePassword = this.loginForm.controls['retypePassword'];
@@ -43,6 +46,8 @@ export class SignUpComponent implements OnInit {
     this.user = {
       id : 0,
       email : '',
+      firstname : '',
+      lastname : '',
       username : '',
       isApproved : false,
       isAdmin : false,
@@ -51,7 +56,7 @@ export class SignUpComponent implements OnInit {
   }
   onSubmit () : void {
     this.loading = true;
-    // console.log(this.user);
+    console.log(this.user);
         this.userService.create(this.user)
             .subscribe(
                 data => {

@@ -82,7 +82,6 @@ namespace WebApi
             {
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
-
             app.UseAuthentication();
 
             app.UseMvc();

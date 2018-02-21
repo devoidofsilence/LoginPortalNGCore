@@ -1,0 +1,7 @@
+<h3>List of all users:</h3>
+    <ul>
+        <li *ngFor="let user of users">
+            {{user.username}}
+            - <a href="javascipt:void(0)" (click)="deleteUser(user.id)">Delete</a>
+        </li>
+    </ul>

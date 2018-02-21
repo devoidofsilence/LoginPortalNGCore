@@ -4,20 +4,41 @@
       <div class="offset-md-4 col-md-4">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-horizontal" >
           <h4 class="form-signin-heading">Please fill the detail</h4>
+          <label for="firstName" class="sr-only">First Name</label>
+          <input class="form-control topTextControl" type="text" id="txtFirstname" name="firstName" placeholder="First Name" [formControl]="firstname" [(ngModel)]="user.firstname" />
+          <label for="lastName" class="sr-only">Last Name</label>
+          <input class="form-control middleTextControl" type="text" id="txtLastname" name="lastName" placeholder="Last Name" [formControl]="lastname" [(ngModel)]="user.lastname" />
           <label for="userName" class="sr-only">Username</label>
-          <input class="form-control topTextControl" type="text" id="txtUsername" name="userName" placeholder="Username" [formControl]="username" [(ngModel)]="user.username" />
+          <input class="form-control middleTextControl" type="text" id="txtUsername" name="userName" placeholder="Username" [formControl]="username" [(ngModel)]="user.username" />
           <label for="email" class="sr-only">E-mail</label>
           <input class="form-control middleTextControl" type="email" id="txtEmail" name="email" placeholder="E-mail" [formControl]="email" [(ngModel)]="user.email" />
           <label for="password" class="sr-only">Password</label>
           <input class="form-control middleTextControl" type="password" id="txtPassword" name="password" placeholder="Password" [formControl]="password" [(ngModel)]="user.password" />
           <label for="retypePassword" class="sr-only">Retype Password</label>
           <input class="form-control lastTextControl" type="password" id="txtRetypePassword" name="retypePassword" placeholder="Confirm Password" [formControl]="retypePassword" />
-          <input type="hidden" name="isApproved"  [(ngModel)]="user.isApproved" />
+          <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="isAdmin" name="isAdmin" value="is-admin" [formControl]="isAdmin" [(ngModel)]="user.isAdmin" >
+                  Is Admin
+                </label>
+              </div>
         <button type="submit" [disabled]="loginForm.invalid" class="btn btn-lg btn-default btn-block">Sign Up</button>
         <button type="button" [routerLink]="['/login']" class="btn btn-lg btn-default btn-block">Sign In</button>
       </form>
       </div>
       <div class="col-md-4" style="padding-top: 2em">
+          <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)"
+          class="alert alert-danger">
+       <div *ngIf="firstname.hasError('required')">
+         Please enter first name
+       </div>
+     </div>
+     <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)"
+               class="alert alert-danger">
+            <div *ngIf="lastname.hasError('required')">
+              Please enter last name
+            </div>
+          </div>
         <div *ngIf="username.invalid && (username.dirty || username.touched)"
                class="alert alert-danger">
             <div *ngIf="username.hasError('required')">

@@ -11,9 +11,10 @@ using WebApi.Helpers;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20180221040507_addedFieldsFirstNameLastName")]
+    partial class addedFieldsFirstNameLastName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,13 +26,13 @@ namespace WebApi.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("Approved");
+
                     b.Property<string>("Email");
 
                     b.Property<string>("Firstname");
 
                     b.Property<bool>("IsAdmin");
-
-                    b.Property<bool>("IsApproved");
 
                     b.Property<string>("Lastname");
 

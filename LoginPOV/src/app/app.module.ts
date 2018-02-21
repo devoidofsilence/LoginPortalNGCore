@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SignInComponent } from './user/signin.component';
 import { SignUpComponent } from './user/signup.component';
+import { UserListComponent } from './user/userlist.component';
 import { ForgotPasswordComponent } from './user/forgotPassword.component';
 import { NotFoundComponent } from './others/notFound.component';
 import { AppConfig } from './app.config';
@@ -33,6 +34,10 @@ const routes: Routes = [
     component: ForgotPasswordComponent
   },
   {
+    path: 'userlist',
+    component: UserListComponent
+  },
+  {
     path: '404',
     component: NotFoundComponent
   },
@@ -52,6 +57,7 @@ const routes: Routes = [
     HomeComponent,
     SignInComponent,
     SignUpComponent,
+    UserListComponent,
     ForgotPasswordComponent,
     NotFoundComponent,
     AlertComponent
@@ -71,7 +77,8 @@ const routes: Routes = [
         AuthGuard,
         AlertService,
         AuthenticationService,
-        UserService
+        UserService,
+        AppComponent
   ],
   bootstrap: [AppComponent]
 })
