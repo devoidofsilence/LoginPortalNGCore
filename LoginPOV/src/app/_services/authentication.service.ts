@@ -1,7 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
-import { BehaviorSubject } from "rxjs";
-import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject, Observable } from "rxjs";
 import 'rxjs/add/operator/map'
 
 import { AppConfig } from '../app.config';
@@ -44,7 +43,7 @@ export class AuthenticationService {
 
     logout() {
         // remove user from local storage to log user out
-        this.isLoginSubject.next(false);
         localStorage.removeItem('currentUser');
+        this.isLoginSubject.next(false);
     }
 }

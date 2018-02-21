@@ -77,8 +77,7 @@ const routes: Routes = [
         AuthGuard,
         AlertService,
         AuthenticationService,
-        UserService,
-        AppComponent
+        UserService
   ],
   bootstrap: [AppComponent]
 })

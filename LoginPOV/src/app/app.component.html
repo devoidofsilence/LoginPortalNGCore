@@ -1,12 +1,11 @@
 
 <ul *ngIf="(isLoggedIn | async)" class="nav nav-pills">
     <li class="nav-item">
-      <a class="nav-link active" href="#" [routerLink]="['/']">Home</a>
+      <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/home']">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#" [routerLink]="['/userlist']">Users</a>
+      <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/userlist']">Users</a>
     </li>
   </ul>
-
 <alert></alert>
 <router-outlet></router-outlet>
