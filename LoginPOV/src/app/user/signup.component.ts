@@ -56,7 +56,6 @@ export class SignUpComponent implements OnInit {
   }
   onSubmit () : void {
     this.loading = true;
-    console.log(this.user);
         this.userService.create(this.user)
             .subscribe(
                 data => {

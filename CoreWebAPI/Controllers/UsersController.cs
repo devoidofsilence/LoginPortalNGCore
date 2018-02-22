@@ -61,6 +61,8 @@ namespace WebApi.Controllers
                 Id = user.Id,
                 Username = user.Username,
                 Email = user.Email,
+                IsAdmin = user.IsAdmin,
+                IsApproved = user.IsApproved,
                 Token = tokenString
             });
         }

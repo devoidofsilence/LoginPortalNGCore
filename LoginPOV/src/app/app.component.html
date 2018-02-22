@@ -3,8 +3,12 @@
     <li class="nav-item">
       <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/home']">Home</a>
     </li>
-    <li class="nav-item">
+    <li *ngIf="(isAdmin | async)" class="nav-item">
       <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/userlist']">Users</a>
+    </li>
+    <li class="nav-item">
+      <!-- <a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/home']">Home</a> -->
+      <a class="nav-link" href="#" [routerLink]="['/login']">Logout</a>
     </li>
   </ul>
 <alert></alert>

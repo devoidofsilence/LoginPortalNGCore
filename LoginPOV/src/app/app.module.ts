@@ -13,7 +13,7 @@ import { NotFoundComponent } from './others/notFound.component';
 import { AppConfig } from './app.config';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, RoleGuardService } from './_services/index';
 
 const routes: Routes = [
   {
@@ -35,7 +35,8 @@ const routes: Routes = [
   },
   {
     path: 'userlist',
-    component: UserListComponent
+    component: UserListComponent,
+    canActivate: [RoleGuardService]
   },
   {
     path: '404',
@@ -77,7 +78,8 @@ const routes: Routes = [
         AuthGuard,
         AlertService,
         AuthenticationService,
-        UserService
+        UserService,
+        RoleGuardService
   ],
   bootstrap: [AppComponent]
 })
