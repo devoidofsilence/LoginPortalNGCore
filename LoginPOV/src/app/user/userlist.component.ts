@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { User } from '../_models/index';
-import { UserService } from '../_services/index';
+import { AlertService, UserService } from '../_services/index';
 
 @Component({
     selector: 'user-list',
@@ -12,7 +12,7 @@ export class UserListComponent implements OnInit {
     //currentUser: User;
     users: User[] = [];
 
-    constructor(private userService: UserService) {
+    constructor(private alertService: AlertService, private userService: UserService) {
         //this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
@@ -21,7 +21,20 @@ export class UserListComponent implements OnInit {
     }
 
     deleteUser(id: number) {
-        this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
+        if (id != JSON.parse(localStorage.getItem('currentUser')).id) {
+            this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
+            this.alertService.success("User deleted");
+        } else {
+            this.alertService.error("Cannot delete oneself");
+        }
+    }
+
+    editUser(user: any) {
+        this.userService.update(user).subscribe(() => { this.loadAllUsers() });
+    }
+
+    approveUser(user: any) {
+        this.userService.update(user).subscribe(() => { this.loadAllUsers() });
     }
 
     private loadAllUsers() {

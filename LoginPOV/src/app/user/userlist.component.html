@@ -1,7 +1,39 @@
-<h3>List of all users:</h3>
-    <ul>
-        <li *ngFor="let user of users">
-            {{user.username}}
-            - <a href="javascipt:void(0)" (click)="deleteUser(user.id)">Delete</a>
-        </li>
-    </ul>
+<table id="tbl_Users" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Username
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Is Admin
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.username}}</td>
+            <td>{{user.firstname}}</td>
+            <td>{{user.lastname}}</td>
+            <td *ngIf="user.isAdmin==true">
+                Yes
+            </td>
+            <td *ngIf="user.isAdmin==false">
+                    No
+                </td>
+            <td>
+                <a href="javascipt:void(0)" (click)="deleteUser(user.id)">Delete</a>
+                <a href="javascipt:void(0)" (click)="editUser(user)">Edit</a>
+                <a href="javascipt:void(0)" (click)="approveUser(user)">Approve</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
