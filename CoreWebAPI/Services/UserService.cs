@@ -92,6 +92,7 @@ namespace WebApi.Services
             // update user properties
             user.Email = userParam.Email;
             user.Username = userParam.Username;
+            user.IsAdmin = userParam.IsAdmin;
 
             // update password if it was entered
             if (!string.IsNullOrWhiteSpace(password))

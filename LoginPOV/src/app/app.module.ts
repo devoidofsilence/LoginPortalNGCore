@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { SignInComponent } from './user/signin.component';
 import { SignUpComponent } from './user/signup.component';
 import { UserListComponent } from './user/userlist.component';
+import { UserEditComponent } from './user/useredit.component';
 import { ForgotPasswordComponent } from './user/forgotPassword.component';
 import { NotFoundComponent } from './others/notFound.component';
 import { AppConfig } from './app.config';
@@ -39,6 +40,10 @@ const routes: Routes = [
     canActivate: [RoleGuardService]
   },
   {
+    path: 'useredit/:userid',
+    component: UserEditComponent
+  },
+  {
     path: '404',
     component: NotFoundComponent
   },
@@ -59,6 +64,7 @@ const routes: Routes = [
     SignInComponent,
     SignUpComponent,
     UserListComponent,
+    UserEditComponent,
     ForgotPasswordComponent,
     NotFoundComponent,
     AlertComponent
@@ -70,7 +76,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(
       routes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     )
   ],
   providers: [

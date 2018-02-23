@@ -1,7 +1,8 @@
-import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, AfterViewChecked, AfterContentChecked  } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { User } from './_models/index';
 import { AuthenticationService } from './_services/index';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   // changeDetection: ChangeDetectionStrategy.OnPush,
@@ -9,21 +10,24 @@ import { AuthenticationService } from './_services/index';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewChecked, AfterContentChecked {
   isLoggedIn : Observable<boolean>;
   currentUser: User;
   isAdmin : Observable<boolean>;
-  constructor(private authenticationService: AuthenticationService, private cdRef:ChangeDetectorRef) {
+  constructor(private authenticationService: AuthenticationService, private cdRef:ChangeDetectorRef, private router: Router, private route: ActivatedRoute) {
     this.isLoggedIn = authenticationService.isLoggedIn();
     this.isAdmin = authenticationService.isAdmin();
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-}
+  }
+  
   ngOnInit () {
 
   }
 
-  ngAfterViewChecked()
-  {
+  ngAfterContentChecked() {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
+
+  ngAfterViewChecked() {
     this.cdRef.detectChanges();
   }
 }
