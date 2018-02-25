@@ -16,13 +16,14 @@
           <input class="form-control middleTextControl" type="password" id="txtPassword" name="password" placeholder="Password" [formControl]="password" [(ngModel)]="user.password" />
           <label for="retypePassword" class="sr-only">Retype Password</label>
           <input class="form-control lastTextControl" type="password" id="txtRetypePassword" name="retypePassword" placeholder="Confirm Password" [formControl]="retypePassword" /> -->
-          <div class="checkbox">
+          <div class="checkbox" *ngIf="currentUser!=null && currentUser.isAdmin==true">
                 <label>
                   <input type="checkbox" id="isAdmin" name="isAdmin" value="is-admin" [formControl]="isAdmin" [(ngModel)]="user.isAdmin" >
                   Is Admin
                 </label>
               </div>
         <button type="submit" [disabled]="userEditForm.invalid" class="btn btn-lg btn-default btn-block">Submit</button>
+          <a *ngIf="currentUser!=null && currentUser.id==user.id" class="btn btn-link" href="javascript:void(0)" routerLink="/changePassword">Change Password</a>
       </form>
       </div>
       <div class="col-md-4" style="padding-top: 2em">

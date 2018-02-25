@@ -25,6 +25,10 @@ export class UserService {
         return this.http.put(this.config.apiUrl + '/users/' + user.id, user, this.jwt());
     }
 
+    approve(user: User) {
+        return this.http.put(this.config.apiUrl + '/users/approveUser/' + user.id, user, this.jwt());
+    }
+
     delete(id: number) {
         return this.http.delete(this.config.apiUrl + '/users/' + id, this.jwt());
     }

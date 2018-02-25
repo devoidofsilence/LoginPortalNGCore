@@ -13,7 +13,9 @@ namespace WebApi.Services
         User GetById(int id);
         User Create(User user, string password);
         void Update(User user, string password = null);
+        void Approve(User user, string password = null);
         void Delete(int id);
+        void ChangePassword(User user, string password = null);
     }
 
     public class UserService : IUserService
@@ -30,7 +32,7 @@ namespace WebApi.Services
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 return null;
 
-            var user = _context.Users.SingleOrDefault(x => x.Username == username);
+            var user = _context.Users.SingleOrDefault(x => x.Username == username && x.IsApproved == true);
 
             // check if username exists
             if (user == null)
@@ -91,8 +93,34 @@ namespace WebApi.Services
 
             // update user properties
             user.Email = userParam.Email;
+            user.Firstname = userParam.Firstname;
+            user.Lastname = userParam.Lastname;
             user.Username = userParam.Username;
             user.IsAdmin = userParam.IsAdmin;
+
+            // update password if it was entered
+            if (!string.IsNullOrWhiteSpace(password))
+            {
+                byte[] passwordHash, passwordSalt;
+                CreatePasswordHash(password, out passwordHash, out passwordSalt);
+
+                user.PasswordHash = passwordHash;
+                user.PasswordSalt = passwordSalt;
+            }
+
+            _context.Users.Update(user);
+            _context.SaveChanges();
+        }
+
+        public void Approve(User userParam, string password = null)
+        {
+            var user = _context.Users.Find(userParam.Id);
+
+            if (user == null)
+                throw new AppException("User not found");
+
+            // update user isApproved property
+            user.IsApproved = !userParam.IsApproved;
 
             // update password if it was entered
             if (!string.IsNullOrWhiteSpace(password))
@@ -116,6 +144,27 @@ namespace WebApi.Services
                 _context.Users.Remove(user);
                 _context.SaveChanges();
             }
+        }
+
+        public void ChangePassword(User userParam, string password = null)
+        {
+            var user = _context.Users.Find(userParam.Id);
+
+            if (user == null)
+                throw new AppException("User not found");
+
+            // update password if it was entered
+            if (!string.IsNullOrWhiteSpace(password))
+            {
+                byte[] passwordHash, passwordSalt;
+                CreatePasswordHash(password, out passwordHash, out passwordSalt);
+
+                user.PasswordHash = passwordHash;
+                user.PasswordSalt = passwordSalt;
+            }
+
+            _context.Users.Update(user);
+            _context.SaveChanges();
         }
 
         // private helper methods

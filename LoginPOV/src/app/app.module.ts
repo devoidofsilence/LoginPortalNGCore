@@ -10,11 +10,12 @@ import { SignUpComponent } from './user/signup.component';
 import { UserListComponent } from './user/userlist.component';
 import { UserEditComponent } from './user/useredit.component';
 import { ForgotPasswordComponent } from './user/forgotPassword.component';
+import { ChangePasswordComponent } from './user/changePassword.component';
 import { NotFoundComponent } from './others/notFound.component';
 import { AppConfig } from './app.config';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService, RoleGuardService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, RoleGuardService, RoleGuardEditPreventionService } from './_services/index';
 
 const routes: Routes = [
   {
@@ -35,13 +36,18 @@ const routes: Routes = [
     component: ForgotPasswordComponent
   },
   {
+    path: 'changePassword',
+    component: ChangePasswordComponent
+  },
+  {
     path: 'userlist',
     component: UserListComponent,
     canActivate: [RoleGuardService]
   },
   {
     path: 'useredit/:userid',
-    component: UserEditComponent
+    component: UserEditComponent,
+    canActivate: [RoleGuardEditPreventionService]
   },
   {
     path: '404',
@@ -66,6 +72,7 @@ const routes: Routes = [
     UserListComponent,
     UserEditComponent,
     ForgotPasswordComponent,
+    ChangePasswordComponent,
     NotFoundComponent,
     AlertComponent
   ],
@@ -85,7 +92,8 @@ const routes: Routes = [
         AlertService,
         AuthenticationService,
         UserService,
-        RoleGuardService
+        RoleGuardService,
+        RoleGuardEditPreventionService
   ],
   bootstrap: [AppComponent]
 })

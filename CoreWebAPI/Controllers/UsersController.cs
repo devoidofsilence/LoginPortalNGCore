@@ -123,11 +123,51 @@ namespace WebApi.Controllers
             }
         }
 
+        [HttpPut("approveUser/{id}")]
+        public IActionResult Approve(int id, [FromBody]UserDto userDto)
+        {
+            // map dto to entity and set id
+            var user = _mapper.Map<User>(userDto);
+            user.Id = id;
+
+            try 
+            {
+                // save 
+                _userService.Approve(user, userDto.Password);
+                return Ok();
+            } 
+            catch(AppException ex)
+            {
+                // return error message if there was an exception
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             _userService.Delete(id);
             return Ok();
+        }
+
+        [HttpPut("changePassword/{id}")]
+        public IActionResult ChangePassword(int id, [FromBody]UserDto userDto)
+        {
+            // map dto to entity and set id
+            var user = _mapper.Map<User>(userDto);
+            user.Id = id;
+
+            try 
+            {
+                // save 
+                _userService.ChangePassword(user, userDto.Password);
+                return Ok();
+            } 
+            catch(AppException ex)
+            {
+                // return error message if there was an exception
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

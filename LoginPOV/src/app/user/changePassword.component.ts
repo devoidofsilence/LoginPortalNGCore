@@ -1,43 +1,31 @@
-import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ReactiveFormsModule } from '@angular/forms';
 import { AlertService, UserService } from '../_services/index';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../_models/user.model';
 
 @Component({
-  selector: 'useredit',
-  templateUrl: './useredit.component.html',
+  selector: 'change-password',
+  templateUrl: './changePassword.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class UserEditComponent implements OnInit {
+export class ChangePasswordComponent implements OnInit {
   loading = false;
-  userEditForm : FormGroup;
-  firstname : AbstractControl;
-  lastname : AbstractControl;
-  username : AbstractControl;
-  email : AbstractControl;
-  isAdmin : AbstractControl;
+  changePwdForm : FormGroup;
+  oldPassword : AbstractControl;
+  newPassword : AbstractControl;
   user : User;
   currentUser: User;
   newUserStored: any;
-//   @Output() activate: EventEmitter<string> = new EventEmitter<string>();
   constructor (fb : FormBuilder, private router: Router,
     private userService: UserService,
     private alertService: AlertService,
     private route: ActivatedRoute) {
-        this.userEditForm = fb.group({
-            'firstname' : ['', Validators.required],
-            'lastname' : ['', Validators.required],
-            'username' : ['', Validators.required],
-            'isAdmin' : [false],
-            'email' : ['', [Validators.required,Validators.email]]
+        this.changePwdForm = fb.group({
+            'oldPassword' : ['', [Validators.required]],
+            'newPassword' : ['', [Validators.required]]
           });
-        this.firstname = this.userEditForm.controls['firstname'];
-        this.lastname = this.userEditForm.controls['lastname'];
-        this.username = this.userEditForm.controls['username'];
-        this.email = this.userEditForm.controls['email'];
-        this.isAdmin = this.userEditForm.controls['isAdmin'];
-        // this.getUser(this.route.snapshot.params['userid']);
+        this.oldPassword = this.changePwdForm.controls['oldPassword'];
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 

@@ -18,3 +18,13 @@ C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebAp
 C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebApi.AssemblyInfo.cs
 C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebApi.dll
 C:\AngularLoginPortal\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebApi.pdb
+C:\Office Project\LoginPortalNGCore\CoreWebAPI\bin\Debug\netcoreapp2.0\WebApi.deps.json
+C:\Office Project\LoginPortalNGCore\CoreWebAPI\bin\Debug\netcoreapp2.0\WebApi.runtimeconfig.json
+C:\Office Project\LoginPortalNGCore\CoreWebAPI\bin\Debug\netcoreapp2.0\WebApi.runtimeconfig.dev.json
+C:\Office Project\LoginPortalNGCore\CoreWebAPI\bin\Debug\netcoreapp2.0\WebApi.dll
+C:\Office Project\LoginPortalNGCore\CoreWebAPI\bin\Debug\netcoreapp2.0\WebApi.pdb
+C:\Office Project\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebApi.csproj.CoreCompileInputs.cache
+C:\Office Project\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebApi.AssemblyInfoInputs.cache
+C:\Office Project\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebApi.AssemblyInfo.cs
+C:\Office Project\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebApi.dll
+C:\Office Project\LoginPortalNGCore\CoreWebAPI\obj\Debug\netcoreapp2.0\WebApi.pdb

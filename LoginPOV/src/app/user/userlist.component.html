@@ -11,6 +11,9 @@
                 Last Name
             </th>
             <th>
+                E-mail
+            </th>
+            <th>
                 Is Admin
             </th>
             <th>
@@ -23,6 +26,7 @@
             <td>{{user.username}}</td>
             <td>{{user.firstname}}</td>
             <td>{{user.lastname}}</td>
+            <td>{{user.email}}</td>
             <td *ngIf="user.isAdmin==true">
                 Yes
             </td>
@@ -32,7 +36,7 @@
             <td>
                 <a href="javascipt:void(0)" (click)="deleteUser(user.id)">Delete</a>
                 <a href="#" [routerLink]="['/useredit', user.id ]">Edit</a>
-                <a href="javascipt:void(0)" (click)="approveUser(user)">Approve</a>
+                <a href="javascipt:void(0)" (click)="approveUser(user)">{{user.isApproved == true?'Disapprove':'Approve'}}</a>
             </td>
         </tr>
     </tbody>

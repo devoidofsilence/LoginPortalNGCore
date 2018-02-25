@@ -7,7 +7,7 @@
       <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/userlist']">Users</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/useredit', currentUser.id]">Edit User</a>
+      <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/useredit', currentUser.id]">Edit User Info</a>
     </li>
     <li class="nav-item">
       <!-- <a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/home']">Home</a> -->
@@ -15,4 +15,4 @@
     </li>
   </ul>
 <alert></alert>
-<router-outlet></router-outlet>
+<router-outlet (activate)="onActivate($event)"></router-outlet>

@@ -21,7 +21,7 @@ export class AuthenticationService {
 
     private hasAdmin() : boolean {
         if (localStorage.getItem('currentUser') != null) {
-            return !!(JSON.parse(localStorage.getItem('currentUser')).isAdmin == true);
+            return (JSON.parse(localStorage.getItem('currentUser')).isAdmin == true);
         }
         return false;
     }

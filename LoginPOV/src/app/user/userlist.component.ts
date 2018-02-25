@@ -34,7 +34,18 @@ export class UserListComponent implements OnInit {
     }
 
     approveUser(user: any) {
-        this.userService.update(user).subscribe(() => { this.loadAllUsers() });
+        if (user.id != JSON.parse(localStorage.getItem('currentUser')).id) {
+            this.userService.approve(user).subscribe(() => {
+                this.loadAllUsers(); 
+                if (user.isApproved == false) {
+                    this.alertService.success("User approved");
+                } else {
+                    this.alertService.success("User disapproved");
+                }
+            });
+        } else {
+            this.alertService.error("Cannot approve/disapprove oneself");
+        }
     }
 
     private loadAllUsers() {

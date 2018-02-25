@@ -1,11 +1,11 @@
-import { Component, OnInit, ChangeDetectorRef, AfterViewChecked, AfterContentChecked  } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, AfterViewChecked, AfterContentChecked  } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { User } from './_models/index';
 import { AuthenticationService } from './_services/index';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, AfterViewChecked, AfterContentCheck
   }
   
   ngOnInit () {
-
+      
   }
 
   ngAfterContentChecked() {
@@ -29,5 +29,14 @@ export class AppComponent implements OnInit, AfterViewChecked, AfterContentCheck
 
   ngAfterViewChecked() {
     this.cdRef.detectChanges();
+  }
+
+  onActivate($event) {
+    if (JSON.parse(localStorage.getItem('currentUser')).isAdmin) {
+      this.authenticationService.isAdminSubject.next(true);
+    }
+    else {
+        this.authenticationService.isAdminSubject.next(false);
+    }
   }
 }
