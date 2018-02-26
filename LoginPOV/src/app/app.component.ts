@@ -32,7 +32,7 @@ export class AppComponent implements OnInit, AfterViewChecked, AfterContentCheck
   }
 
   onActivate($event) {
-    if (JSON.parse(localStorage.getItem('currentUser')).isAdmin) {
+    if (localStorage.getItem('currentUser') != null && JSON.parse(localStorage.getItem('currentUser')).isAdmin) {
       this.authenticationService.isAdminSubject.next(true);
     }
     else {

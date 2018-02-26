@@ -11,7 +11,7 @@
           <label for="userName" class="sr-only">Username</label>
           <input class="form-control middleTextControl" type="text" id="txtUsername" name="userName" placeholder="Username" [formControl]="username" [(ngModel)]="user.username" />
           <label for="email" class="sr-only">E-mail</label>
-          <input class="form-control middleTextControl" type="email" id="txtEmail" name="email" placeholder="E-mail" [formControl]="email" [(ngModel)]="user.email" />
+          <input class="form-control lastTextControl" type="email" id="txtEmail" name="email" placeholder="E-mail" [formControl]="email" [(ngModel)]="user.email" />
           <!-- <label for="password" class="sr-only">Password</label>
           <input class="form-control middleTextControl" type="password" id="txtPassword" name="password" placeholder="Password" [formControl]="password" [(ngModel)]="user.password" />
           <label for="retypePassword" class="sr-only">Retype Password</label>
@@ -23,7 +23,7 @@
                 </label>
               </div>
         <button type="submit" [disabled]="userEditForm.invalid" class="btn btn-lg btn-default btn-block">Submit</button>
-          <a *ngIf="currentUser!=null && currentUser.id==user.id" class="btn btn-link" href="javascript:void(0)" routerLink="/changePassword">Change Password</a>
+          <a *ngIf="currentUser!=null && currentUser.id==user.id" class="btn btn-link" href="javascript:void(0)" [routerLink]="['/changePassword', user.id]">Change Password</a>
       </form>
       </div>
       <div class="col-md-4" style="padding-top: 2em">

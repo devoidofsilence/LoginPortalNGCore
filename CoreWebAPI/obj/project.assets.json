@@ -12606,30 +12606,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Roman\\.nuget\\packages\\": {},
+    "C:\\Users\\roman.bajracharya\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Office Project\\LoginPortalNGCore\\CoreWebAPI\\WebApi.csproj",
+      "projectUniqueName": "C:\\AngularLoginPortal\\LoginPortalNGCore\\CoreWebAPI\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "C:\\Office Project\\LoginPortalNGCore\\CoreWebAPI\\WebApi.csproj",
-      "packagesPath": "C:\\Users\\Roman\\.nuget\\packages\\",
-      "outputPath": "C:\\Office Project\\LoginPortalNGCore\\CoreWebAPI\\obj\\",
+      "projectPath": "C:\\AngularLoginPortal\\LoginPortalNGCore\\CoreWebAPI\\WebApi.csproj",
+      "packagesPath": "C:\\Users\\roman.bajracharya\\.nuget\\packages\\",
+      "outputPath": "C:\\AngularLoginPortal\\LoginPortalNGCore\\CoreWebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Roman\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\roman.bajracharya\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

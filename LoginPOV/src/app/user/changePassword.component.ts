@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl, ReactiveFormsModul
 import { AlertService, UserService } from '../_services/index';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../_models/user.model';
+import { PasswordValidation } from '../others/passwordValidation.validator';
 
 @Component({
   selector: 'change-password',
@@ -12,8 +13,9 @@ import { User } from '../_models/user.model';
 export class ChangePasswordComponent implements OnInit {
   loading = false;
   changePwdForm : FormGroup;
-  oldPassword : AbstractControl;
-  newPassword : AbstractControl;
+//   oldPassword : AbstractControl;
+  password : AbstractControl;
+  retypePassword : AbstractControl;
   user : User;
   currentUser: User;
   newUserStored: any;
@@ -22,10 +24,16 @@ export class ChangePasswordComponent implements OnInit {
     private alertService: AlertService,
     private route: ActivatedRoute) {
         this.changePwdForm = fb.group({
-            'oldPassword' : ['', [Validators.required]],
-            'newPassword' : ['', [Validators.required]]
+            // 'oldPassword' : ['', [Validators.required]],
+            'retypePassword' : ['', [Validators.required]],
+            'password' : ['', [Validators.required]]
+          }
+          , {
+            validator: PasswordValidation.MatchPassword // your validation method
           });
-        this.oldPassword = this.changePwdForm.controls['oldPassword'];
+        // this.oldPassword = this.changePwdForm.controls['oldPassword'];
+        this.password = this.changePwdForm.controls['password'];
+        this.retypePassword = this.changePwdForm.controls['retypePassword'];
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
@@ -46,22 +54,10 @@ export class ChangePasswordComponent implements OnInit {
 
   onSubmit (user) : void {
     this.loading = true;
-        this.userService.update(user)
+        this.userService.changePassword(user)
             .subscribe(
                 data => {
-                    if (user.id == this.currentUser.id) {
-                        this.newUserStored = {
-                            id: user.id,
-                            username: user.username,
-                            email: user.email,
-                            isAdmin: user.isAdmin,
-                            isApproved: user.isApproved,
-                            token: JSON.parse(localStorage.getItem('currentUser')).token,
-                        };
-                        localStorage.setItem('currentUser', JSON.stringify(this.newUserStored));
-                        // this.activate.emit('AdminStatusChanged');
-                    }
-                    this.alertService.success('User updated successfully', true);
+                    this.alertService.success('Password updated successfully', true);
                     if (JSON.parse(localStorage.getItem('currentUser')).isAdmin == true) {
                         this.router.navigate(['/userlist']);
                     }

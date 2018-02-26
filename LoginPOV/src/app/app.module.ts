@@ -36,10 +36,6 @@ const routes: Routes = [
     component: ForgotPasswordComponent
   },
   {
-    path: 'changePassword',
-    component: ChangePasswordComponent
-  },
-  {
     path: 'userlist',
     component: UserListComponent,
     canActivate: [RoleGuardService]
@@ -48,6 +44,11 @@ const routes: Routes = [
     path: 'useredit/:userid',
     component: UserEditComponent,
     canActivate: [RoleGuardEditPreventionService]
+  },
+  {
+    path: 'changePassword/:userid',
+    component: ChangePasswordComponent
+    // canActivate: [RoleGuardService]
   },
   {
     path: '404',
