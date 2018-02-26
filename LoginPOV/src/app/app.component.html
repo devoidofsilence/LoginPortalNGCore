@@ -1,18 +1,29 @@
-
-<ul *ngIf="(isLoggedIn | async)" class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/home']">Home</a>
-    </li>
-    <li *ngIf="(isAdmin | async)" class="nav-item">
-      <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/userlist']">Users</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/useredit', currentUser.id]">Edit User Info</a>
-    </li>
-    <li class="nav-item">
-      <!-- <a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/home']">Home</a> -->
-      <a class="nav-link" href="#" [routerLink]="['/login']">Logout</a>
-    </li>
-  </ul>
-<alert></alert>
-<router-outlet (activate)="onActivate($event)"></router-outlet>
+<div class="container">
+    <div class="header clearfix" *ngIf="(isLoggedIn | async)">
+      <nav>
+        <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+                <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/home']">Home</a>
+              </li>
+              <li *ngIf="(isAdmin | async)" class="nav-item">
+                <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/userlist']">Users</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/useredit', currentUser.id]">Edit User Info</a>
+              </li>
+              <li class="nav-item">
+                <!-- <a [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" href="#" [routerLink]="['/home']">Home</a> -->
+                <a class="nav-link" href="#" [routerLink]="['/login']">Logout</a>
+              </li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">The Login Project</h3>
+    </div>
+  <div style="padding-top:1em">
+    <alert></alert>
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+  </div>
+    <footer class="footer">
+      <p>© Company 2018</p>
+    </footer>
+  </div>

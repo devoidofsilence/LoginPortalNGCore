@@ -34,6 +34,7 @@
                     No
                 </td>
             <td>
+                <!-- <a href="javascipt:void(0)" (click)="deleteUser(user.id)">Delete</a> -->
                 <a href="javascipt:void(0)" (click)="deleteUser(user.id)">Delete</a>
                 <a href="#" [routerLink]="['/useredit', user.id ]">Edit</a>
                 <a href="javascipt:void(0)" (click)="approveUser(user)">{{user.isApproved == true?'Disapprove':'Approve'}}</a>
