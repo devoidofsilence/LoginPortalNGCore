@@ -17,7 +17,7 @@ import { NotFoundComponent } from './others/notFound.component';
 import { AppConfig } from './app.config';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService, RoleGuardService, RoleGuardEditPreventionService, ConfirmationDialogService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, RoleGuardService, RoleGuardEditPreventionService, ConfirmationDialogService, RoleGuardChangePasswordService } from './_services/index';
 
 const routes: Routes = [
   {
@@ -49,8 +49,8 @@ const routes: Routes = [
   },
   {
     path: 'changePassword/:userid',
-    component: ChangePasswordComponent
-    // canActivate: [RoleGuardService]
+    component: ChangePasswordComponent,
+    canActivate: [RoleGuardChangePasswordService]
   },
   {
     path: '404',
@@ -99,6 +99,7 @@ const routes: Routes = [
         UserService,
         RoleGuardService,
         RoleGuardEditPreventionService,
+        RoleGuardChangePasswordService,
         ConfirmationDialogService
   ],
   bootstrap: [AppComponent],

@@ -61,8 +61,12 @@ export class UserListComponent implements OnInit {
         .then((confirmed) => {
             if (confirmed == true) {
                 if (id != JSON.parse(localStorage.getItem('currentUser')).id) {
-                    this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
-                    this.alertService.success("User deleted");
+                    if (this.users.filter(e => e.isAdmin).length == 1) {
+                        this.alertService.error("Cannot delete all admin");
+                    } else {
+                        this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
+                        this.alertService.success("User deleted");
+                    }
                 } else {
                     this.alertService.error("Cannot delete oneself");
                 }

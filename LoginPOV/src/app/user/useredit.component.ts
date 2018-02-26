@@ -18,6 +18,7 @@ export class UserEditComponent implements OnInit {
   email : AbstractControl;
   isAdmin : AbstractControl;
   user : User;
+  users: User[] = [];
   currentUser: User;
   newUserStored: any;
 //   @Output() activate: EventEmitter<string> = new EventEmitter<string>();
@@ -45,6 +46,7 @@ export class UserEditComponent implements OnInit {
     this.route.params.subscribe((params)=>{
         this.getUser(this.route.snapshot.params['userid']);
       });
+    this.userService.getAll().subscribe(users => { this.users = users; });
   }
 
   getUser(id) {
@@ -58,6 +60,9 @@ export class UserEditComponent implements OnInit {
 
   onSubmit (user) : void {
     this.loading = true;
+    if (this.users.filter(e=>e.isAdmin==true && e.isApproved==true).length == 1 && this.currentUser.isAdmin == true && user.isAdmin == false) {
+        this.alertService.error("At least one approved admin is required");
+    } else {
         this.userService.update(user)
             .subscribe(
                 data => {
@@ -85,5 +90,6 @@ export class UserEditComponent implements OnInit {
                     this.alertService.error(error._body);
                     this.loading = false;
                 });
+    }
   }
 }
