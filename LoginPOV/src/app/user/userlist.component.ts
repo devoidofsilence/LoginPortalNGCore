@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../_models/index';
 import { AlertService, UserService, ConfirmationDialogService } from '../_services/index';
+import { Subject } from 'rxjs/Subject';
+
+import 'rxjs/add/operator/map';
 
 @Component({
     selector: 'user-list',
@@ -9,12 +12,23 @@ import { AlertService, UserService, ConfirmationDialogService } from '../_servic
 
 export class UserListComponent implements OnInit {
     //currentUser: User;
+    dtOptions: any = {};
     users: User[] = [];
+    // We use this trigger because fetching the list of persons can be quite long,
+    // thus we ensure the data is fetched before rendering
+    dtTrigger: Subject<any> = new Subject();
     constructor(private alertService: AlertService, private userService: UserService, private confirmationDialogService: ConfirmationDialogService) {
         //this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
     ngOnInit() {
+        this.dtOptions = {
+            pagingType: 'full_numbers',
+            pageLength: 10,
+            searching: false,
+            lengthChange: false,
+            responsive: true
+          };
         this.loadAllUsers();
     }
 
@@ -53,7 +67,11 @@ export class UserListComponent implements OnInit {
     }
 
     private loadAllUsers() {
-        this.userService.getAll().subscribe(users => { this.users = users; });
+        this.userService.getAll().subscribe(users => {
+            this.users = users;
+            // Calling the DT trigger to manually render the table
+            this.dtTrigger.next();
+        });
     }
 
     public deleteUser(id : number) {

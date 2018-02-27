@@ -59,7 +59,7 @@ export class SignUpComponent implements OnInit {
         this.userService.create(this.user)
             .subscribe(
                 data => {
-                    this.alertService.success('User registered successfully', true);
+                    this.alertService.success('User registered successfully. You can log in after approval.', true);
                     this.router.navigate(['/login']);
                 },
                 error => {

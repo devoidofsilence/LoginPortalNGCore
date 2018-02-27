@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SignInComponent } from './user/signin.component';
@@ -85,6 +86,7 @@ const routes: Routes = [
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    DataTablesModule,
     RouterModule.forRoot(
       routes,
       { enableTracing: false } // <-- debugging purposes only

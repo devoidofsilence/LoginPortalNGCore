@@ -16,7 +16,8 @@
           <input class="form-control middleTextControl" type="password" id="txtPassword" name="password" placeholder="Password" [formControl]="password" [(ngModel)]="user.password" />
           <label for="retypePassword" class="sr-only">Retype Password</label>
           <input class="form-control lastTextControl" type="password" id="txtRetypePassword" name="retypePassword" placeholder="Confirm Password" [formControl]="retypePassword" /> -->
-          <div class="checkbox" *ngIf="currentUser!=null && currentUser.isAdmin==true">
+          <!-- <div class="checkbox" *ngIf="currentUser!=null && currentUser.isAdmin==true"> -->
+              <div class="checkbox" *ngIf="false">
                 <label>
                   <input type="checkbox" id="isAdmin" name="isAdmin" value="is-admin" [formControl]="isAdmin" [(ngModel)]="user.isAdmin" >
                   Is Admin

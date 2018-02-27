@@ -38,6 +38,7 @@ body {
     border-top-right-radius: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    margin-bottom: -1px;
   }
 
   .form-signin .lastTextControl {
@@ -52,4 +53,8 @@ body {
 
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: #007bff!important;
 }
